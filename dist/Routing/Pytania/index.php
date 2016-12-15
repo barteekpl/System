@@ -2,11 +2,20 @@
 ob_start();
 include("conn.php");
 
+
+
+
+
+
+
  if ($_SESSION['login'] ) {
+
+
  }
  else{
 	 if($_GET[category]){
 	 header("Location: /"); }
+
  }
 
  if($_GET[value]=='logaut'){
@@ -17,11 +26,17 @@ header("Location: /");
 
  }
 
+
+
 $dana=$_SESSION["login"];
+
+
 $wynik = mysql_query("SELECT * FROM user where login='$dana'");
 
 if(mysql_num_rows($wynik) > 0) {
-  while($r = mysql_fetch_assoc($wynik)) {
+
+    while($r = mysql_fetch_assoc($wynik)) {
+
 		$userid= $_SESSION["id"]=$r['id'];
 		 $_SESSION["name"]=$r['name'];
 		 $_SESSION["surname"]=$r['surname'];
@@ -30,6 +45,7 @@ if(mysql_num_rows($wynik) > 0) {
 		$_SESSION["id"]=$r['id'];
 
 }}
+
 $wynika = mysql_query("SELECT * FROM projekt where userid='$userid' and type=1");
 $wynikt = mysql_query("SELECT * FROM projekt where userid='$userid' and type=2");
 $wynikp = mysql_query("SELECT * FROM projekt where userid='$userid' and type=3");
@@ -96,7 +112,6 @@ include ("Routing/Url/$.php");
 
 exit;
 }
-
 
 
    if( $_GET[category] == 'LP' )
@@ -310,20 +325,7 @@ if ($_POST['UptadePytanieID'] and $_POST['UptadePytanie'] )
 {
  $UptadePytanieID=$_POST['UptadePytanieID'];
  $UptadePytanie=$_POST['UptadePytanie'];
- $an1=$_POST['an1'];
- $an2=$_POST['an2'];
- $an3=$_POST['an3'];
- $an4=$_POST['an4'];
- $Odpowiedz=$_POST['Odpowiedz'];
-
-echo $wynikp = mysql_query("UPDATE  `bleizer_system`.`Pytanie` SET
-  `Pytanie` =  '$UptadePytanie' ,
-  `an1` =  '$an1' ,
-  `an2` =  '$an2' ,
-  `an3` =  '$an3' ,
-  `an4` =  '$an4' ,
-  `Odpowiedz` =  '$Odpowiedz'
-  WHERE  `id` ='$UptadePytanieID';");
+echo $wynikp = mysql_query("UPDATE  `bleizer_system`.`Pytanie` SET  `Pytanie` =  '$UptadePytanie' WHERE  `id` ='$UptadePytanieID';");
 }
 
 if ($_POST['UptadeNameID'] and $_POST['UptadeName'] )
@@ -385,11 +387,6 @@ if($_GET[value] == 'Add' and $_GET[category] == 'Mail' )
 include ("Routing/Mail/Add.php");
 }
 
-if($_GET[category] == 'Answers' )
-{
-include ("Routing/Answers/$.php");
-}
-
 if( $_GET[category] == 'Configure' )
 {
 include ("Routing/Configure/$.php");
@@ -402,16 +399,6 @@ include ("Routing/EditName/$.php");
 if($_GET[category] == 'EditPytanie' )
 {
 include ("Routing/EditPytanie/$.php");
-}
-
-if($_GET[category] == 'DeletePytanie' )
-{
-include ("Routing/DeletePytanie/$.php");
-}
-
-if($_GET[category] == 'UrlAdd' )
-{
-include ("Routing/UrlAdd/$.php");
 }
 
 if( $_GET[category] == 'Delete' )

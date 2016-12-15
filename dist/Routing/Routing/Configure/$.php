@@ -6,31 +6,19 @@
 
     <link href="/docs/css/bootstrap.min.css" rel="stylesheet">
     <link href="/docs/css/highlight.css" rel="stylesheet">
-
+   
 <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap2-toggle.min.css" rel="stylesheet">
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap2-toggle.min.js"></script>
+	
 
 
 
 
 
-
-
+			
 			<?php
 mysql_query("SET NAMES 'utf8'");
-$pytania = mysql_query("SELECT * FROM Pytanie where idprojekt= $_GET[value]");
+$pytania = mysql_query("SELECT * FROM Pytanie where idprojekt= $_GET[value]"); 
 
 
-echo "Configuracja";
-
-?>
-<div class="checkbox">
-  <label><input type="checkbox" value="">Anonimowa</label>
-</div>
-<div class="checkbox">
-  <label><input type="checkbox" value="">Option 2</label>
-</div>
-
-<div class="checkbox ">
-  <label><input type="checkbox" value="" >Option 3</label>
-</div>
+echo "a";

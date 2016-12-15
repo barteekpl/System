@@ -1,10 +1,15 @@
 ﻿<?php
 
+
 if ($_POST['DeleteNameID']  )
 {
 $DeleteNameID=$_POST['DeleteNameID'];
 $wynik = mysql_query("DELETE FROM `projekt` WHERE id='$DeleteNameID'");
 }
+// $wynik = mysql_query("DELETE FROM `Pytanie` WHERE id='$deleteid'");
+
+
+
 $wynik = mysql_query("SELECT * FROM projekt where userid='$userid'");
 echo '<table class= table table-striped table-bordered table-hover>';
  echo '<thead>';
@@ -70,10 +75,10 @@ echo '</td>';
 
 echo '<td>';
 		echo '<a href="/EditName/'.$idpytania.'" ><button type="button" class="btn btn-info">Edytuj Nazwę	</button> </a>';
-		// echo '<a href="/Configure/'.$idpytania.'" ><button type="button" class="btn btn-info">Konfiguruj</button> </a>';
+		echo '<a href="/Configure/'.$idpytania.'" ><button type="button" class="btn btn-info">Konfiguruj</button> </a>';
 		echo '<a href="/Url/'.$idpytania.'" ><button type="button" class="btn btn-primary">Podgląd</button> </a>';
 		echo '<a href="/Pytania/'.$idpytania.'" ><button type="button" class="btn btn-primary">Pytania</button></a> ';
-		echo '<a href="/UrlAdd/'.$idpytania.'" ><button type="button" class="btn btn-success">Udostępnij</button></a> ';
+		echo '<a href="/Url/'.$idpytania.'" ><button type="button" class="btn btn-success">Udostępnij</button></a> ';
 		echo '<a href="/Delete/'.$idpytania.'" ><button type="button" class="btn btn-warning">Delete</button></a> ';
 echo '</td>';
 echo '<td>';

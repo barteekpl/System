@@ -1,4 +1,4 @@
-<?php
+﻿	<?php
 	$wynik = mysql_query("SELECT * FROM projekt where userid='$userid'");
 
 
@@ -19,7 +19,7 @@
 
 
 <div class="container">
-    <div class="row col-md-12">
+    <div class="row col-md-6 col-md-offset-2 custyle">
     <table class="table table-striped custab">
     <thead>
       </tr>
@@ -27,7 +27,6 @@
       <th>Liczba pytań</th>
 		  <th>Liczba wypełnień ankiety</th>
 		  <th>Data ostaniego wypełnienia </th>
-			<th>#</th>
         </tr>
     </thead><?php
 	if(mysql_num_rows($wynik) > 0) {
@@ -52,18 +51,6 @@
             <th><?php echo $pytaniaa?></th>
 						<th><?php echo $data['total'];?></th>
 						<th><?php echo $answers1['date'];?></th>
-						<th>
-							<?php
-if($answers1['date'] > 0)
-{
-?>
-						<a href="../Answers/<?php echo $idpytania;?>" class="btn btn-info" role="button">Odpowiedzi</a>
-							<?php
-}
-			?>
-
-
-						 </th>
         		</tr>
 	<?php
 	}}
